@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Coffee PHP Framework</title>
+	<style type="text/css">
+		* { margin: 0; padding: 0; }
+		body { background-color: #EEE; font-family: sans-serif; font-size: 16px; line-height: 20px; margin: 40px; }
+		#wrapper { border-radius: 10px; padding: 30px; background: #fff; color: #333; margin: 0 auto; width: 800px; }
+		a { color: #36428D; }
+		h1 { color: #000; font-size: 55px; padding: 0 0 25px; line-height: 1em; }
+		.intro { font-size: 22px; line-height: 30px; font-family: georgia, serif; color: #555; padding: 29px 0 20px; border-top: 1px solid #CCC; }
+		h2 { margin: 50px 0 15px; padding: 0 0 10px; font-size: 18px; border-bottom: 1px dashed #ccc; }
+		h2.first { margin: 10px 0 15px; }
+		p { margin: 0 0 15px; line-height: 22px;}
+		a { color: #666; }
+		pre { border-left: 1px solid #ddd; line-height:20px; margin:20px; padding-left:1em; font-size: 16px; }
+		pre, code { color:#137F80; font-family: Courier, monospace; }
+		ul, ol { margin: 15px 30px; }
+		li { line-height: 24px;}
+		.footer { color: #777; font-size: 12px; margin: 40px 0 0 0; }
+		pre.debug_source { border: 1px solid #CCCCCC; background-color: #FFFFFF; color: #333333; font-family: monospace; font-size: 11px; line-height: 1em; margin: 0; padding: 0; width: 100%; overflow: auto; }
+		span.line { display: block; margin: 0px; padding: 0px; }
+		span.line_number { width: 25px; display: inline-block; background-color: #EFEFEF; padding: 4px 8px 4px 8px; }
+		span.line_content { display: inline-block; padding: 4px 0 4px 4px; }
+		span.current_line span.line_number, span.current_line { background-color: #f0eb96; font-weight: bold; }
+		.backtrace_block { display: none; }
+	</style>
+	<script type="text/javascript">
+		function toggle(elem){elem = document.getElementById(elem);if (elem.style && elem.style['display']){var disp = elem.style['display'];}else if (elem.currentStyle){var disp = elem.currentStyle['display'];}else if (window.getComputedStyle){var disp = document.defaultView.getComputedStyle(elem, null).getPropertyValue('display');}elem.style.display = disp == 'block' ? 'none' : 'block';return false;}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1><?php echo $this->severity; ?>!</h1>
+
+		<p class="intro"><?php echo $this->type; ?> : <?php echo $this->message; ?></p>
+
+		<h2 class="first"><?php echo $this->filepath; ?> @ line <?php echo $this->error_line; ?></h2>
+
+<?php if (is_array($this->debug_lines)): ?>
+<pre class="debug_source"><?php foreach ($this->debug_lines as $line_num => $line_content): ?>
+<span<?php echo ($line_num == $this->error_line) ? ' class="line current_line"' : ' class="line"'; ?>><span class="line_number"><?php echo str_pad($line_num, (strlen(count($this->debug_lines))), ' ', STR_PAD_LEFT); ?></span><span class="line_content"><?php echo $line_content . PHP_EOL; ?>
+</span></span><?php endforeach; ?></pre>
+<?php endif; ?>
+
+		<h2>Backtrace</h2>
+		<ol>
+		<?php
+			$id = 0;
+			foreach($this->backtrace as $trace):
+				$id++;
+				$debug_lines = \Core\Debug::highlightFile($trace['file'], $trace['line']);
+		?>
+			<li>
+				<a href="#" onclick="javascript:toggle('backtrace_<?php echo $id; ?>');return false;"><?php echo \Core\Debug::cleanPath($trace['file']).' @ line '.$trace['line']; ?></a>
+				<div id="backtrace_<?php echo $id; ?>" class="backtrace_block">
+<pre class="debug_source"><?php foreach ($debug_lines as $line_num => $line_content): ?>
+<span<?php echo ($line_num == $trace['line']) ? ' class="line current_line"' : ' class="line"'; ?>><span class="line_number"><?php echo str_pad($line_num, (strlen(count($debug_lines))), ' ', STR_PAD_LEFT); ?></span><span class="line_content"><?php echo $line_content . PHP_EOL; ?>
+</span></span><?php endforeach; ?></pre>
+				</div>
+			</li>
+		<?php endforeach; ?>
+		</ol>
+		<p class="footer">
+			<a href="http://coffeephp.org">Coffee</a> is released under the MIT license.
+		</p>
+	</div>
+</body>
+</html>

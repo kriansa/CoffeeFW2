@@ -1,0 +1,57 @@
+<? Core\Asset::captureStart() ?>
+	<style>
+		.mt-60 {
+			margin-top: 60px;
+		}
+
+		.display-table {
+			display: table;
+		}
+	</style>
+	<script>
+		$(function(){
+			window.prettyPrint && prettyPrint();
+		});
+	</script>
+<? Core\Asset::captureStop() ?>
+
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+	<div class="container">
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+		<a class="brand" href="#">CoffeePHP</a>
+		<div class="nav-collapse">
+		<ul class="nav">
+			<li><a href="http://coffeephp.org/">Home</a></li>
+			<li><a href="http://coffeephp.org/docs">Documentation</a></li>
+			<li><a href="http://coffeephp.org/download">Download</a></li>
+		</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+	</div>
+</div>
+
+<div class="container mt-60">
+	<!-- Main hero unit for a primary marketing message or call to action -->
+	<div class="hero-unit">
+		<h1><?php echo $this->message; ?></h1>
+		<p><?php echo $this->comment; ?></p>
+	</div>
+
+	<div class="alert alert-block alert-info">
+		<strong>Controller: </strong> <?php echo $this->file; ?>
+	</div>
+
+	<pre class="prettyprint linenums"><?php echo $this->code; ?></pre>
+
+	<hr>
+
+	<footer>
+		<p class="pull-right">Powered by <a href="http://coffeephp.org/">CoffeePHP</a> 0.1-alpha</p>
+	</footer>
+
+</div> <!-- /container -->

@@ -1,0 +1,25 @@
+<section id="cadastro">
+	<div class="page-header">
+		<h1>Listando personagens</h1>
+	</div>
+	<div>
+		<table class="table table-condensed table-striped">
+			<thead>
+				<tr>
+					<th>AID</th>
+					<th>CID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<? foreach ($this->chars as $char) : ?>
+				<tr>
+					<td><?= $char->account_id; ?></td>
+					<td><?= $char->char_id; ?></td>
+					<td><?= $char->name; ?></td>
+				</tr>
+				<? endforeach; ?>
+			</tbody>
+		</table>
+	</div>
+</section>

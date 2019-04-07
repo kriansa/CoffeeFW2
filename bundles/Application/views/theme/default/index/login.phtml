@@ -1,0 +1,111 @@
+<div class="alert alert-error">
+	Login falhou!
+	<a class="close" data-dismiss="alert">&times;</a>
+</div>
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div id="torneio">
+	<h1>Master Brasil Championship 2012</h1>
+	<p>Você chega em casa e nao tem oq fazer, que tal participar do torneio mbc?</p>
+	<p><a class="btn btn-primary btn-extra-large" href="#cadastro">Cadastre-se já!</a>
+		<a class="btn btn-extra-large" href="#info">Mais informações</a></p>
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+	<div class="span4">
+		<h2>Fácil</h2>
+		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+		<p><a class="btn btn-extra-large btn-info" href="#info">Cadastre 1 classe</a></p>
+	</div>
+	<div class="span4">
+		<h2>Divertido</h2>
+		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+		<p><a class="btn btn-extra-large btn-warning" href="#info">Cadastrar 3 classes</a></p>
+	</div>
+	<div class="span4">
+		<h2>Prêmios reais</h2>
+		<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+		<p><a class="btn btn-extra-large btn-success" href="#info">Cadastrar 5 classes</a></p>
+	</div>
+</div>
+
+<section id="info">
+	<div class="page-header">
+		<h1>Informações <small>saiba mais sobre</small></h1>
+	</div>
+	<div class="row">
+		<div class="span3 columns">
+			<p>This plugin adds quick, dynamic tab and pill functionality for transitioning through local content.</p>
+			<a class="btn" target="_blank" href="assets/js/bootstrap-tab.js">Download file</a>
+		</div>
+		<div class="span9 columns">
+			<h3>Events</h3>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th style="width: 150px;">Event</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>show</td>
+						<td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+					</tr>
+					<tr>
+						<td>shown</td>
+						<td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'a[data-toggle="tab"]'</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">'shown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  e</span><span class="pun">.</span><span class="pln">target </span><span class="com">// activated tab</span></li><li class="L2"><span class="pln">  e</span><span class="pun">.</span><span class="pln">relatedTarget </span><span class="com">// previous tab</span></li><li class="L3"><span class="pun">})</span></li></ol></pre>
+		</div>
+	</div>
+</section>
+
+<section id="cadastro">
+	<div class="page-header">
+		<h1>Cadastre-se já! <small>participar</small></h1>
+	</div>
+	<div class="row">
+		<?php if ($logged) { ?>
+		<div class="span3 columns">
+			<p>This plugin adds quick, dynamic tab and pill functionality for transitioning through local content.</p>
+			<a class="btn" target="_blank" href="assets/js/bootstrap-tab.js">Download file</a>
+		</div>
+		<div class="span9 columns">
+			<h2>Example stabs</h2>
+			<p>Click the tabs below to toggle between hidden panes, even via dropdown menus.</p>
+			<hr>
+			<h2>Using bootstrap-tab.js</h2>
+			<p>Enable tabbable tabs via javascript:</p>
+			<h3>Events</h3>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th style="width: 150px;">Event</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>show</td>
+						<td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+					</tr>
+					<tr>
+						<td>shown</td>
+						<td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		<?php } else { ?>
+		<div class="span3 columns">
+			<p>This plugin adds quick, dynamic tab and pill functionality for transitioning through local content.</p>
+			<a class="btn" target="_blank" href="assets/js/bootstrap-tab.js">Download file</a>
+		</div>
+		<?php } ?>
+	</div>
+</section>

@@ -1,0 +1,47 @@
+<?= $this->partial('Index/login', compact('logged')); ?>
+<section id="cadastro">
+	<div class="page-header">
+		<h1>Cadastre-se já! <small>participar</small></h1>
+	</div>
+	<div class="row">
+		<?php if ( ! $logged) { ?>
+		<div class="span12">
+			<form class="form-horizontal">
+				<fieldset>
+					<legend>Selecione os personagens que você quer cadastrar no MBC 2012</legend>
+					<div class="control-group">
+						<label for="select01" class="control-label">Pacote</label>
+						<div class="controls">
+							<select id="select01">
+								<option value="1">1 personagem - R$ 10,00</option>
+								<option value="2">3 personagens - R$ 20,00</option>
+								<option value="3">5 personagens - R$ 30,00</option>
+							</select>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">Personagens</label>
+						<div class="controls">
+							<? foreach($chars as $char_id => $char) { ?>
+							<label class="checkbox">
+								<input type="checkbox" value="<?php echo $char_id; ?>" name="char_id">
+								<?= $char->name ?> - <?= $char->class ?>
+							</label>
+							<? } ?>
+						</div>
+					</div>
+					<div class="form-actions">
+						<button class="btn btn-primary" type="submit">Cadastrar</button>
+						<button class="btn">Cancel</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<? } else { ?>
+		<div class="span3 columns">
+			<p>This plugin adds quick, dynamic tab and pill functionality for transitioning through local content.</p>
+			<a class="btn" target="_blank" href="assets/js/bootstrap-tab.js">Download file</a>
+		</div>
+		<? } ?>
+	</div>
+</section>
